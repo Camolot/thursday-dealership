@@ -27,7 +27,7 @@
     $app->get("/car_results", function() use ($app) {
 
 
-        $cars = array();
+        $cars = $_SESSION['list_of_cars'];
         $cars_matching_search = array();
         foreach ($cars as $car) {
             if ( ($car->getPrice() <= $_GET["price"]) && ($car->getMiles() <= $_GET["mileage"]) ) {

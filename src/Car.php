@@ -46,7 +46,7 @@
     }
     function save()
     {
-        array_push($_SESSION['list_of_cars']);
+        array_push($_SESSION['list_of_cars'], $this);
     }
     static function getAll()
     {
