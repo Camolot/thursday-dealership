@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css'>
+    <title>Car Dealership!!</title>
+  </head>
+  <body>
+    <div class='container'>
+      <h1>Car Search</h1>
+      <p>Enter your maximum price and mileage</p>
+      <form action='/car_search'>
+        <div class='form-group'>
+          <label for='price'>Enter your maximum price</label>
+          <input id='price' name='price' class='form-control' type='number'>
+          <label for='mileage'>Enter your maximum mileage</label>
+          <input id='mileage' name='mileage' class='form-control' type='number'>
+        </div>
+        <button type='submit' class='btn-success'>Submit</button>
+      </form>
+  </body>
+</html>
