@@ -6,16 +6,16 @@
 
     </head>
     <body>
-        <h1>These Cars match your search results:</h1>
+        <h1>These are all of the cars for Sale:</h1>
         <p>
-            {% for car in cars %}
             <ul>
+                {% for car in cars %}
                 <li>{{car.getModel}}</li>
                 <li>{{car.getPrice}}</li>
                 <li>{{car.getMiles}}</li>
                 <li>{{car.getImage}}</li>
+                {% endfor %}
             </ul>
-            {% endfor %}
         </p>
         </ul>
     </body>

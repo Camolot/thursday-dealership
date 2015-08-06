@@ -15,7 +15,7 @@
 
     $app->get("/", function() use ($app) {
 
-        return $app['twig']->render('home.html.twig');
+        return $app['twig']->render('home.html.twig', array('cars' => Car::getAll()));
 
     });
 
@@ -30,7 +30,7 @@
         $cars = $_SESSION['list_of_cars'];
         $cars_matching_search = array();
         foreach ($cars as $car) {
-            if ( ($car->getPrice() <= $_GET["price"]) && ($car->getMiles() <= $_GET["mileage"]) ) {
+            if ( ($car->getPrice() <= $_GET["price"]) && ($car->getMiles() <= $_GET["miles"]) ) {
                 array_push($cars_matching_search, $car);
             }
         }
@@ -39,9 +39,20 @@
     });
 
     $app->get("/car_add", function() use ($app) {
+
         return $app['twig']->render('creating_car.html.twig');
     });
 
+    $app->post("/cars_list", function() use ($app) {
+        $car = new Car($_POST['model'], $_POST['price'], $_POST['miles'], $_POST['image'] );
+        $car->save();
+        return $app['twig']->render('new_car.html.twig', array('cars' => Car::getAll()));
+    });
+
+    $app->post("/delete_all", function() use ($app) {
+        Car::deleteAll();
+        return $app['twig']->render('home.html.twig', array('cars' =>Car::getAll()));
+    });
 
 
     return $app;

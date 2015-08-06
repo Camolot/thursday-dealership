@@ -8,14 +8,11 @@
         <div class="container">
             <h1>Would You Like to Buy or Sell a Car?</h1>
 
-            <a href="car_search"><button>Find A Car</button></a>
-            <a href="car_add"><button>Add A Car</button></a>
-            <h1>Cars for sale</h1>
-            <p>
-                <ul>
-                    
-                </ul>
-            </p>
+            <form action="car_search"><button>Find A Car</button></form>
+            <form action="car_add"><button>Add A Car</button></form>
+            <form action="delete_all" method="post"><button>Delete All</button></form>
+            {{car.getAll}}
+
         </div>
     </body>
 </html>
