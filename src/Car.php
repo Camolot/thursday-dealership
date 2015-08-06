@@ -44,6 +44,22 @@
     {
       return $this->image;
     }
+    function save()
+    {
+        array_push($_SESSION['list_of_cars']);
+    }
+    static function getAll()
+    {
+        return $_SESSION['list_of_cars'];
+    }
+    static function deleteAll()
+    {
+        $_SESSION['list_of_cars'] = array();
+    }
+    static function deleteLast()
+    {
+        array_pop($_SESSION['list_of_cars']);
+    }
   }
 /*
   $cars_matching_search = array();
